@@ -11,9 +11,8 @@ module.exports = {
       nameFood: {
         type: Sequelize.STRING,
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
+      pictureFood: {
+        type: Sequelize.STRING,
       },
       restoId: {
         type: Sequelize.INTEGER,
@@ -23,6 +22,10 @@ module.exports = {
         },
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,

@@ -23,23 +23,6 @@ exports.addResto = async (req, res) => {
       picture: req.file.path,
     });
 
-    const schema = joi.object({
-      namaResto: joi.string().required(),
-      openDate: joi.date().required(),
-      picture: joi.string().required(),
-      addressResto: joi.string().required(),
-      locationResto: joi.string().required(),
-    });
-
-    const { error } = schema.validate(dataResto);
-
-    if (error) {
-      return res.status(400).send({
-        status: failed,
-        message: error.details[0].message,
-      });
-    }
-
     const newDataResto = await Resto.findOne({
       where: {
         id: dataResto.id,
@@ -69,7 +52,7 @@ exports.updateResto = async (req, res) => {
     });
 
     if (!dataResto) {
-      res.status(404).send({
+      return res.status(404).send({
         status: failed,
         message: messageFailed("Update Restaurant", id),
         data: {
