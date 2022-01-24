@@ -32,7 +32,7 @@ exports.addResto = async (req, res) => {
     res.status(200).send({
       status: success,
       message: messageSuccess("Add Restaurant"),
-      data: { newDataResto },
+      data: newDataResto,
     });
   } catch (error) {
     errorResponse(error, res);
@@ -82,7 +82,7 @@ exports.updateResto = async (req, res) => {
     res.status(200).send({
       status: success,
       message: messageSuccess("Update Restaurant", id),
-      data: { newDataResto },
+      data: newDataResto,
     });
   } catch (error) {
     errorResponse(error, res);
@@ -143,16 +143,14 @@ exports.getRestoById = async (req, res) => {
       res.status(404).send({
         status: failed,
         message: messageFailed("Get Restaurant", id),
-        data: {
-          dataResto: [],
-        },
+        data: [],
       });
     }
 
     res.status(200).send({
       status: success,
       message: messageSuccess("Get Restaurant", id),
-      data: { dataResto },
+      data: dataResto,
     });
   } catch (error) {
     errorResponse(error, res);
@@ -172,16 +170,14 @@ exports.getAllResto = async (req, res) => {
       res.status(404).send({
         status: failed,
         message: messageEmpty,
-        data: {
-          dataResto: [],
-        },
+        data: [],
       });
     }
 
     res.status(200).send({
       status: success,
       message: messageSuccess("Get All Restaurant"),
-      data: { dataResto },
+      data: dataResto,
     });
   } catch (error) {
     errorResponse(error, res);

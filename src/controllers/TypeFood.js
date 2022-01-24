@@ -34,7 +34,7 @@ exports.addTypeFood = async (req, res) => {
     res.status(200).send({
       status: success,
       message: messageSuccess("Add Type Food"),
-      data: { newDataTypeFood },
+      data: newDataTypeFood,
     });
   } catch (error) {
     errorResponse(error, res);
@@ -57,9 +57,7 @@ exports.updateTypeFood = async (req, res) => {
       return res.status(400).send({
         status: failed,
         message: messageEmpty,
-        data: {
-          dataTypeFood: [],
-        },
+        data: [],
       });
     }
 
@@ -84,7 +82,7 @@ exports.updateTypeFood = async (req, res) => {
     res.status(200).send({
       status: success,
       message: messageSuccess("Update Type Food", id),
-      data: { newDataTypeFood },
+      data: newDataTypeFood,
     });
   } catch (error) {
     errorResponse(error, res);
@@ -106,9 +104,7 @@ exports.deleteTypeFood = async (req, res) => {
       return res.status(400).send({
         status: failed,
         message: messageEmpty,
-        data: {
-          dataTypeFood: [],
-        },
+        data: [],
       });
     }
 
@@ -121,7 +117,7 @@ exports.deleteTypeFood = async (req, res) => {
     res.status(200).send({
       status: success,
       message: messageSuccess("Delete Type Food", id),
-      data: { dataTypeFood },
+      data: dataTypeFood,
     });
   } catch (error) {
     errorResponse(error, res);
@@ -146,16 +142,14 @@ exports.getTypeFoodById = async (req, res) => {
       return res.status(400).send({
         status: failed,
         message: messageEmpty,
-        data: {
-          dataTypeFood: [],
-        },
+        data: [],
       });
     }
 
     res.status(200).send({
       status: success,
       message: messageSuccess("Get Type Food", id),
-      data: { dataTypeFood },
+      data: dataTypeFood,
     });
   } catch (error) {
     errorResponse(error, res);
