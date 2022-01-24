@@ -1,3 +1,4 @@
+const joi = require("joi");
 const { Resto } = require("../../models");
 //* Re-Useable Error message
 const { success, failed, messageSuccess, messageFailed, messageEmpty } = {
@@ -21,6 +22,23 @@ exports.addResto = async (req, res) => {
       ...req.body,
       picture: req.file.path,
     });
+
+    const schema = joi.object({
+      namaResto: joi.string().required(),
+      openDate: joi.date().required(),
+      picture: joi.string().required(),
+      addressResto: joi.string().required(),
+      locationResto: joi.string().required(),
+    });
+
+    const { error } = schema.validate(dataResto);
+
+    if (error) {
+      return res.status(400).send({
+        status: failed,
+        message: error.details[0].message,
+      });
+    }
 
     const newDataResto = await Resto.findOne({
       where: {
