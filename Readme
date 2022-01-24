@@ -1,0 +1,12 @@
+//*--------- Resto ----------*//
+Add => https://service-resto.herokuapp.com/api/v1/resto
+update => https://service-resto.herokuapp.com/api/v1/resto/{id}
+Delete => https://service-resto.herokuapp.com/api/v1/resto/{id}
+Get By Id => https://service-resto.herokuapp.com/api/v1/resto/{id}
+Get All => https://service-resto.herokuapp.com/api/v1/resto
+
+//*--------- TypeFood ----------*//
+Add => https://service-resto.herokuapp.com/api/v1/typefood
+Update => https://service-resto.herokuapp.com/api/v1/typefood/{id}
+Delete => https://service-resto.herokuapp.com/api/v1/resto/typefood/{id}
+Get By Id => https://service-resto.herokuapp.com/api/v1/typefood/{id}
