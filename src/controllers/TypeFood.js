@@ -124,6 +124,33 @@ exports.deleteTypeFood = async (req, res) => {
   }
 };
 
+//*--------------------- Get All Type Food ---------------------*//
+exports.getAllTypeFood = async (req, res) => {
+  try {
+    const dataAllTypeFood = await TypeFood.findAll({
+      attributes: {
+        exclude: ["createdAt", "updatedAt"],
+      },
+    });
+
+    if (!dataAllTypeFood) {
+      res.status(404).send({
+        status: failed,
+        message: messageEmpty,
+        data: [],
+      });
+    }
+
+    res.status(200).send({
+      status: success,
+      message: messageSuccess("Get All Type Food"),
+      data: dataAllTypeFood,
+    });
+  } catch (error) {
+    errorResponse(error, res);
+  }
+};
+
 //*--------------------- Get Type Food By Id ---------------------*//
 exports.getTypeFoodById = async (req, res) => {
   try {

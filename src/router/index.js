@@ -13,6 +13,7 @@ const {
   updateTypeFood,
   deleteTypeFood,
   getTypeFoodById,
+  getAllTypeFood,
 } = require("../controllers/TypeFood");
 
 //*--------- Resto ----------*//
@@ -27,5 +28,6 @@ router.post("/typefood", uploadFile("pictureFood"), addTypeFood);
 router.patch("/typefood/:id", updateTypeFood);
 router.delete("/typefood/:id", deleteTypeFood);
 router.get("/typefood/:id", getTypeFoodById);
+router.get("/typefood", getAllTypeFood);
 
 module.exports = router;
