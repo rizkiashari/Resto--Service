@@ -14,6 +14,9 @@ module.exports = {
       pictureFood: {
         type: Sequelize.STRING,
       },
+      price: {
+        type: Sequelize.STRING,
+      },
       restoId: {
         type: Sequelize.INTEGER,
         references: {
