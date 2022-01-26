@@ -11,8 +11,11 @@ module.exports = {
       namaResto: {
         type: Sequelize.STRING,
       },
-      openDate: {
-        type: Sequelize.DATE,
+      open: {
+        type: Sequelize.STRING,
+      },
+      close: {
+        type: Sequelize.STRING,
       },
       picture: {
         type: Sequelize.STRING,

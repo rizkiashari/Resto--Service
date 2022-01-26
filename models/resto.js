@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
   Resto.init(
     {
       namaResto: DataTypes.STRING,
-      openDate: DataTypes.DATE,
+      open: DataTypes.STRING,
+      close: DataTypes.STRING,
       picture: DataTypes.STRING,
       locationResto: DataTypes.STRING,
       addressResto: DataTypes.STRING,
