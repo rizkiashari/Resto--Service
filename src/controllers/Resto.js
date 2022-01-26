@@ -18,6 +18,14 @@ const errorResponse = (err, res) => {
 //*--------------------- Add Restaurant ---------------------*//
 exports.addResto = async (req, res) => {
   try {
+    if (parseInt(req.body.open) > parseInt(req.body.close)) {
+      return res.status(400).send({
+        status: failed,
+        message: "Open time must be less than close time",
+        data: {},
+      });
+    }
+
     const dataResto = await Resto.create({
       ...req.body,
       picture: req.file.path,
