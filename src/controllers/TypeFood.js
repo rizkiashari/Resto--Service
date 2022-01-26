@@ -19,6 +19,19 @@ const errorResponse = (err, res) => {
 //*--------------------- Add Type Food ---------------------*//
 exports.addTypeFood = async (req, res) => {
   try {
+    if (
+      !req.body.nameFood &&
+      !req.body.pictureFood &&
+      !req.body.restoId &&
+      !req.body.price
+    ) {
+      return res.status(400).send({
+        status: failed,
+        message: messageFailed("Add Type Food"),
+        data: [],
+      });
+    }
+
     const dataTypeFood = await TypeFood.create({
       ...req.body,
       pictureFood: req.file.path,

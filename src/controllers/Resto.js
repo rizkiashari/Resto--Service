@@ -21,7 +21,7 @@ exports.addResto = async (req, res) => {
     if (parseInt(req.body.open) > parseInt(req.body.close)) {
       return res.status(400).send({
         status: failed,
-        message: "Open time must be less than close time",
+        message: messageFailed("Open time must be less than close time"),
         data: {},
       });
     }
